@@ -1,5 +1,7 @@
 'use client';
-import {DuckFamily} from './ducks'
+import {DuckFamily, DuckOne, DuckTwo} from './ducks'
+import {useState} from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export default function Home() {
 
@@ -13,6 +15,20 @@ export default function Home() {
     // Add rest of ducks
     //  - Find way to randomize ducks
     //  - maybe with a number system
+
+    // https://usehooks.com/usewindowsize
+    // https://stackoverflow.com/questions/63406435/how-to-detect-window-size-in-next-js-ssr-using-react-hook
+
+    const size = useWindowSize();
+    const randomNumberLeft = useState(Math.floor(Math.random() * {size.width}));
+    const randomNumberTop = useState(Math.floor(Math.random() * {size.height}));
+
+    return(
+      <div className=''>
+        {randomNumberLeft}
+        {randomNumberTop}
+      </div>
+    )
   }
 
   return (
@@ -22,7 +38,9 @@ export default function Home() {
                 className='border-4 border-dark bg-light border-solid cursor-pointer hover:bg-dark hover:text-light rounded-[500px] uppercase min-w-[160px] text-2xl text-dark text-center p-5 font-bold transition ease-in-out duration-450'>
           Summon Duck
         </button>
-        <DuckFamily className={""}/>
+        <DuckFamily />
+        <DuckOne />
+        <DuckTwo />
       </div>
     </main>
   )
