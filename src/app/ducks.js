@@ -6,6 +6,7 @@ export const DuckFamily = (props) => (
     overflow="visible"
     viewBox="0 0 551.879 277.308"
     {...props}
+    className={`w-full h-auto`}
   >
     <g fillRule="evenodd" clipRule="evenodd">
       <path
@@ -411,6 +412,7 @@ export const DuckOne = (props) => (
     overflow="visible"
     viewBox="0 0 387.721 307.91"
     {...props}
+    className={`w-full h-auto`}
   >
     <g fillRule="evenodd" clipRule="evenodd">
       <path
@@ -460,6 +462,7 @@ export const DuckTwo = (props) => (
     overflow="visible"
     viewBox="0 0 387.721 298.804"
     {...props}
+    className={`w-full h-auto`}
   >
     <g fillRule="evenodd" clipRule="evenodd">
       <path

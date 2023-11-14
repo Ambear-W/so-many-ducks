@@ -1,33 +1,23 @@
 import React from 'react'
 import {useState} from "react";
+import RandomDuck from './RandomDuck';
+import setLeft from '../Hooks/setLeft';
+import setTop from '../Hooks/setTop';
 
-const [width, setWidth] = useState(0);
-const [height, setHeight] = useState(0);
+
 const [count, setCount] = useState(0);
 
 const summonDuck = () => {
-    const images = [
-        <DuckFamily />,
-        <DuckOne />,
-        <DuckTwo />
-    ];
-
-    setWidth(window.innerWidth)
-    setHeight(window.innerHeight)
-
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-    const randomLeft = (Math.floor(Math.random() * width));
-    const randomTop = (Math.floor(Math.random() * height));
 
     const location = {
-        left: randomLeft,
-        top: randomTop
+        left: <setLeft />,
+        top: <setTop />
     }
 
     return (
 
         <div className='absolute' style={location}>
-            {randomImage}
+            <RandomDuck />
         </div>
     )
 }
