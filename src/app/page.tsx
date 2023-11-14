@@ -1,12 +1,19 @@
 'use client';
-import {DuckFamily, DuckOne, DuckTwo} from './ducks'
+import {DuckFamily, DuckOne, DuckTwo} from './ducks';
 import {useState} from "react";
-import { useWindowSize } from "@uidotdev/usehooks";
+// import summonDuck from './Hooks/summonDuck';
+import Ducks from './component/Ducks';
 
 export default function Home() {
 
+  const playQuack = () => {
+    // play duck quack here
+  }
+
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+
   const summonDuck = () =>{
-    console.log("Duck!")
     // Find a way to show image when clicked
     // Find way to randomly place image
     //  - Would it be better to put it in it's own component?
@@ -18,29 +25,42 @@ export default function Home() {
 
     // https://usehooks.com/usewindowsize
     // https://stackoverflow.com/questions/63406435/how-to-detect-window-size-in-next-js-ssr-using-react-hook
+    // https://stackoverflow.com/questions/51404335/append-a-react-component-in-another-on-button-click
+    
+    const images = [
+      <DuckFamily />,
+      <DuckOne />,
+      <DuckTwo />
+    ];
 
-    const size = useWindowSize();
-    const randomNumberLeft = useState(Math.floor(Math.random() * {size.width}));
-    const randomNumberTop = useState(Math.floor(Math.random() * {size.height}));
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+
+    console.log("Duck!")
+
+  
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    const randomLeft = (Math.floor(Math.random() * width));
+    const randomTop = (Math.floor(Math.random() * height));
+
+    const location = {
+      left: randomLeft,
+      top: randomTop
+    }
 
     return(
-      <div className=''>
-        {randomNumberLeft}
-        {randomNumberTop}
+      <div className='absolute' style={location}>
+        {randomImage}
+        <p>hehhehehe</p>
       </div>
     )
   }
 
   return (
     <main className="">
-      <div className='fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2'>
-        <button onClick={summonDuck}
-                className='border-4 border-dark bg-light border-solid cursor-pointer hover:bg-dark hover:text-light rounded-[500px] uppercase min-w-[160px] text-2xl text-dark text-center p-5 font-bold transition ease-in-out duration-450'>
-          Summon Duck
-        </button>
-        <DuckFamily />
-        <DuckOne />
-        <DuckTwo />
+      <div id="react" className='fixed top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2'>
+        <Ducks />
+        
       </div>
     </main>
   )
