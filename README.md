@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 If this is your first time trying to navigate to your local site affer a clone, please ensure that you have npm installed. After you have npm install, on the project file, please run the code npm install. This will download any packages you need to run the site :)
 
+## To do list
+- Add a counter for how many ducks have been spawned
+- Add a quack sound effect
+- MORE DUCKS
+
+
 ## Getting Started
 
 First, run the development server:
