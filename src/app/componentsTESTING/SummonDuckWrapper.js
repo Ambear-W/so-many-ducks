@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
 import SummonDuckButton from './SummonDuckButton'
 import Duck from './Duck'
 
@@ -6,23 +6,20 @@ export const SummonDuckWrapper = () => {
     const [ducks, setDucks] = useState([])
 
     const addDuck = (duck, picture) => {
-        setDucks([...ducks, {location: duck, duckPic: picture}])
+        setDucks([...ducks, {duckLocation: duck, duckPic: picture}])
+        console.log(duck)
+        console.log(picture)
     }
-
-    // const randomDuck = duckImage => {
-    //     setDuckImages([...duckImages, {picture: duckImage}])
-
-    // }
     
     React.useEffect(() => {
-        console.log(ducks)
-    }, [ducks]);
+        console.log('useEffect ducks' + ducks)
+    });
 
   return (
     <div>
       <SummonDuckButton addDuck={addDuck}/>
-      {ducks.map((duck, duckPic, index) => (
-        <Duck location={duck} picture={duckPic} key={index}/>
+      {ducks.map((duckLocation, duckPic, index) => (
+        <Duck location={duckLocation} picture={duckPic} key={index} />
       ))}
     </div>
   )

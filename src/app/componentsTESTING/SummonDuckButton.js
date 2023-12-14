@@ -1,39 +1,28 @@
 'use client';
 import React, { useEffect, useState } from 'react'
-import { DuckFamily, DuckOne, DuckTwo } from '../ducks';
 
-export const SummonDuckButton = ({ addDuck, duckImage }) => {
+export const SummonDuckButton = ({ addDuck }) => {
     const [left, setLeft] = useState(0);
     const [top, setTop] = useState(0);
 
     useEffect(() => {
-        setLeft((Math.floor(Math.random() * screen.width)))
-        setTop(Math.floor(Math.random() * screen.height))
-    }, [])
-
-    const location = {
-        left: left + 'px',
-        top: top + 'px'
-    }
-
-    const images = [
-        <DuckFamily />,
-        <DuckOne />,
-        <DuckTwo />
-    ];
-
-    const summonDuck = () => {
-        console.log('You clicked the button~!')
         setLeft(Math.floor(Math.random() * screen.width));
         setTop(Math.floor(Math.random() * screen.height));
+    }, []);
 
+    
+    const summonDuck = () => {
+        setLeft(Math.floor(Math.random() * screen.width));
+        setTop(Math.floor(Math.random() * screen.height));
         
-        // passing value to wrapper here
+        const duckLocation = {
+            left: left + 'px',
+            top: top + 'px'
+        }
 
-        const randomImage = Math.floor(Math.random() * images.length);
-        console.log('Getting random image...')
+        const duckPic = Math.floor(Math.random() * 3);
         
-        addDuck(location, randomImage)
+        addDuck(duckLocation, duckPic)
     }
 
     return (
