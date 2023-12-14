@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         dark: "#AC3F0C",
         light: "#FBE8A6",
+        tabbed: "#0d0d0c",
         primary: "#B63E96", // 240,86,199
         primaryDark: "#58E6D9" // 80,230,217
       },

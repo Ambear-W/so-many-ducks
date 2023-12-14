@@ -11,7 +11,7 @@ const Duck = ({ picture, location, index }) => {
     const thePicture = images[picture];
 
     return (
-      <div style={{location}} className='absolute transition ease-in-out duration-450' key={index}>
+      <div style={location} className='absolute transition ease-in-out duration-450' key={index}>
         <p>{thePicture}</p>
       </div>
     );
