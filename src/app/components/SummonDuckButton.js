@@ -32,7 +32,7 @@ export const SummonDuckButton = ({ addDuck }) => {
                         border-4 border-dark bg-light text-dark
                         hover:bg-dark hover:text-light 
                         focus:bg-dark focus:text-light focus:border-tabbed
-                        mobile:text-lg superMobile:p-5 superMobile:text-lg' > 
+                        superMobile:p-5 mobile:text-2xl superMobile:text-md' > 
             Summon Duck
         </button>
     )
