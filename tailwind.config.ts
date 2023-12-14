@@ -7,6 +7,10 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      'mobile': '811px',
+      'superMobile' : '281px'
+    },
     extend: {
       colors: {
         dark: "#AC3F0C",
